@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyjn8g3adaqyt"]
+[gd_scene load_steps=8 format=3 uid="uid://cyjn8g3adaqyt"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_dybq4"]
 [ext_resource type="PackedScene" uid="uid://docude6mum5y8" path="res://scenes/pipe.tscn" id="2_p634u"]
@@ -7,11 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://b63mmj0fy76yd" path="res://scenes/ground.tscn" id="4_8g3as"]
 [ext_resource type="PackedScene" uid="uid://cpehg7pxhyll8" path="res://scenes/game_over.tscn" id="6_be0ic"]
 
+[sub_resource type="Environment" id="Environment_6r1hp"]
+background_mode = 3
+glow_enabled = true
+glow_levels/3 = 0.0
+glow_levels/5 = 0.0
+glow_levels/6 = 10.0
+glow_levels/7 = 16.0
+glow_blend_mode = 1
+adjustment_enabled = true
+adjustment_brightness = 0.75
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_dybq4")
 pipe_scene = ExtResource("2_p634u")
 
-[node name="Bird" parent="." instance=ExtResource("3_kisn8")]
+[node name="Player" parent="." instance=ExtResource("3_kisn8")]
 
 [node name="Parallax" parent="." instance=ExtResource("3_4kxs3")]
 
@@ -23,6 +34,7 @@ position = Vector2(296, 275)
 wait_time = 1.5
 
 [node name="ScoreLabel" type="Label" parent="."]
+texture_filter = 3
 offset_right = 94.0
 offset_bottom = 31.0
 size_flags_horizontal = 4
@@ -30,6 +42,9 @@ theme_override_font_sizes/font_size = 22
 text = "SCORE: 0"
 
 [node name="GameOver" parent="." instance=ExtResource("6_be0ic")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6r1hp")
 
 [connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]

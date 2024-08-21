@@ -176,6 +176,7 @@ height = 14.0
 script = ExtResource("1_4v6n3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(3, 3, 3, 1)
 texture_filter = 3
 material = SubResource("ShaderMaterial_4rpu4")
 sprite_frames = SubResource("SpriteFrames_5sp12")
@@ -188,9 +189,9 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_ux705")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(2, 0)
 scale = Vector2(0.161133, 0.154297)
-color = Color(0.45098, 0.0901961, 0.176471, 1)
-energy = 2.0
+color = Color(1, 0, 0, 1)
 shadow_enabled = true
 texture = ExtResource("3_k3eqf")

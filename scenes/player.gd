@@ -30,7 +30,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play("death")
 		move_and_collide(velocity * delta)
 	else:
-		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.play("falling")
 
 func flap():
 	$AnimatedSprite2D.play("jump")

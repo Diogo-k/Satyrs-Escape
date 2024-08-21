@@ -59,3 +59,4 @@ shoot={
 
 renderer/rendering_method.mobile="gl_compatibility"
 textures/default_filters/use_nearest_mipmap_filter=true
+viewport/hdr_2d=true

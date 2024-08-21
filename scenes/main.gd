@@ -32,7 +32,7 @@ func new_game():
 	get_tree().call_group("pipes", "queue_free")
 	pipes.clear()
 	generate_pipes()
-	$Bird.reset()
+	$Player.reset()
 
 func _input(event):
 	if game_over == false:
@@ -41,14 +41,14 @@ func _input(event):
 				if game_running == false:
 					start_game()
 				else:
-					if $Bird.flying:
-						$Bird.flap()
+					if $Player.flying:
+						$Player.flap()
 						check_top()
 
 func start_game():
 	game_running = true
-	$Bird.flying = true
-	$Bird.flap()
+	$Player.flying = true
+	$Player.flap()
 	$PipeTimer.start()
 
 func _process(delta):
@@ -57,8 +57,8 @@ func _process(delta):
 			pipe.position.x -= SCROLL_SPEED
 
 func check_top():
-	if $Bird.position.y < 0:
-		$Bird.falling = true
+	if $Player.position.y < 0:
+		$Player.falling = true
 		stop_game()
 
 func _on_pipe_timer_timeout():
@@ -82,16 +82,16 @@ func scored():
 func stop_game():
 	$PipeTimer.stop()
 	$GameOver.show()
-	$Bird.flying = false
+	$Player.flying = false
 	game_running = false
 	game_over = true
 
 func bird_hit():
-	$Bird.falling = true
+	$Player.falling = true
 	stop_game()
 
 func _on_ground_hit():
-	$Bird.falling = false
+	$Player.falling = false
 	stop_game()
 
 func _on_game_over_restart():

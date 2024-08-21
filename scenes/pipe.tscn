@@ -32,7 +32,7 @@ position = Vector2(0, 52)
 texture = ExtResource("2_rwaqk")
 offset = Vector2(0, 200)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 254)
 shape = SubResource("RectangleShape2D_v6mjc")
 
