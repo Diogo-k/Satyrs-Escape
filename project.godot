@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Satyr's Escape"
-config/description="Help Satyr escape the demons through the dark woods!"
+config/description="Help Satyr escape the relentless demons as he races through the dark woods!"
 config/version="1.0"
 run/main_scene="res://scenes/main.tscn"
 config/use_custom_user_dir=true
