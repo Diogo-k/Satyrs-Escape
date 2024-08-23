@@ -6,6 +6,9 @@ extends Node
 
 @onready var ScoreLabel = $Score/MarginContainer/Label
 
+@onready var HighLabel = $Record/MarginContainer/VBoxContainer/High
+@onready var LastLabel = $Record/MarginContainer/VBoxContainer/Last
+
 var obstacle_table = WeightedTable.new()
 
 var game_running: bool
@@ -41,9 +44,15 @@ func new_game():
 	scroll = 0
 	
 	score = 0
+	
+	HighLabel.text = "Highest Score: " + str(Save.save_data["high_score"])
+	LastLabel.text = "Previous Score: " + str(Save.save_data["last_score"])
 	ScoreLabel.text = "Score: " + str(score)
+	
 	$Score.hide()
 	
+	if Save.save_data["high_score"] > 0:
+		$Record.show()
 	$StartGame.show()
 	$GameOver.hide()
 	
@@ -67,6 +76,8 @@ func _input(event):
 						check_top()
 
 func start_game():
+	$Dialog.hide()
+	$Record.hide()
 	$StartGame.hide()
 	$Score.show()
 	game_running = true
@@ -102,7 +113,7 @@ func generate_obstacles():
 	obstacles.append(obstacle)
 
 func scored():
-	score += 5
+	score += 1
 	if score == 5:
 		obstacle_table.add_item(tree_move_scene, 10)
 	elif score == 10:
@@ -120,6 +131,7 @@ func player_hit():
 	stop_game()
 
 func stop_game():
+	Save.update_score(score)
 	$ObstacleTimer.stop()
 	$GameOver.show()
 	$Player.flying = false

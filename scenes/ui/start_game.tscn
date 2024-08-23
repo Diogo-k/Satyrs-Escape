@@ -1,4 +1,12 @@
-[gd_scene format=3 uid="uid://c6ouv05kxlewj"]
+[gd_scene load_steps=3 format=3 uid="uid://c6ouv05kxlewj"]
+
+[ext_resource type="Shader" path="res://scenes/ui/start_game.gdshader" id="1_pasts"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q2kfj"]
+shader = ExtResource("1_pasts")
+shader_parameter/height = 1.0
+shader_parameter/frequency = 1.0
+shader_parameter/speed = 12.0
 
 [node name="StartGame" type="CanvasLayer"]
 
@@ -24,6 +32,7 @@ vertical_alignment = 1
 
 [node name="Start" type="Label" parent="MarginContainer"]
 texture_filter = 3
+material = SubResource("ShaderMaterial_q2kfj")
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_horizontal = 4
