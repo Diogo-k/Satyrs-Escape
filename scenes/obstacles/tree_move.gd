@@ -16,8 +16,8 @@ func _process(delta):
 	time_passed += delta
 	position.y = initial_y + amplitude * sin(time_passed * frequency)
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	hit.emit()
 
-func _on_score_area_body_entered(body):
+func _on_score_area_body_entered(_body):
 	scored.emit()

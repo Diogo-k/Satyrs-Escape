@@ -11,5 +11,5 @@ func _process(delta: float):
 		var new_offset: Vector2 = parallax_background.get_scroll_offset() + -camera_velocity * delta
 		parallax_background.set_scroll_offset(new_offset)
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	hit.emit()

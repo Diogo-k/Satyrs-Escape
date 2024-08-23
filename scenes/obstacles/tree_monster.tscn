@@ -44,7 +44,6 @@ shape = SubResource("RectangleShape2D_v6mjc")
 position = Vector2(0, 85)
 
 [node name="ScoreArea" type="Area2D" parent="."]
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
 position = Vector2(27, 95)

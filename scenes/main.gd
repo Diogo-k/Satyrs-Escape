@@ -9,6 +9,9 @@ extends Node
 @onready var HighLabel = $Record/MarginContainer/VBoxContainer/High
 @onready var LastLabel = $Record/MarginContainer/VBoxContainer/Last
 
+const MAIN_THEME = preload("res://assets/audio/main_theme.wav")
+const MAIN_THEME_ACTION = preload("res://assets/audio/main_theme_action.wav")
+
 var obstacle_table = WeightedTable.new()
 
 var game_running: bool
@@ -26,6 +29,8 @@ var obstacles: Array
 const PIPE_DELAY : int = 500
 const OBSTACLE_RANGE : int = 76
 
+var is_muted = false
+
 func _ready():
 	$Player.spell_casted.connect(_on_player_spell_casted)
 	$Player.monster_hit.connect(player_hit)
@@ -35,6 +40,10 @@ func _ready():
 	new_game()
 
 func new_game():
+	MusicPlayer.stream = MAIN_THEME
+	MusicPlayer.play()
+	$GameOver.hide()
+	
 	obstacle_table.clear()
 	obstacle_table.add_item(tree_scene, 15)
 	
@@ -42,7 +51,6 @@ func new_game():
 	game_over = false
 	
 	scroll = 0
-	
 	score = 0
 	
 	HighLabel.text = "Highest Score: " + str(Save.save_data["high_score"])
@@ -53,8 +61,8 @@ func new_game():
 	
 	if Save.save_data["high_score"] > 0:
 		$Record.show()
+	
 	$StartGame.show()
-	$GameOver.hide()
 	
 	get_tree().call_group("obstacles", "queue_free")
 	get_tree().call_group("spells", "queue_free")
@@ -65,6 +73,8 @@ func new_game():
 	$Player.reset()
 
 func _input(event):
+	if Input.is_action_just_pressed("mute"):
+		toggle_mute()
 	if game_over == false:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -76,6 +86,7 @@ func _input(event):
 						check_top()
 
 func start_game():
+	$Controls.hide()
 	$Dialog.hide()
 	$Record.hide()
 	$StartGame.hide()
@@ -86,7 +97,7 @@ func start_game():
 	$ObstacleTimer.start()
 	$Platform.destroy()
 
-func _process(delta):
+func _process(_delta):
 	if game_running:
 		for obstacle in obstacles:
 			obstacle.position.x -= SCROLL_SPEED
@@ -104,7 +115,7 @@ func generate_obstacles():
 	var obstacle = obstacle_scene.instantiate()
 	
 	obstacle.position.x = PIPE_DELAY
-	obstacle.position.y = ground_height / 2 + randi_range(-OBSTACLE_RANGE, OBSTACLE_RANGE)
+	obstacle.position.y = ground_height / 2.0 + randi_range(-OBSTACLE_RANGE, OBSTACLE_RANGE)
 	
 	obstacle.hit.connect(player_hit)
 	obstacle.scored.connect(scored)
@@ -114,6 +125,7 @@ func generate_obstacles():
 
 func scored():
 	score += 1
+	
 	if score == 5:
 		obstacle_table.add_item(tree_move_scene, 10)
 	elif score == 10:
@@ -122,8 +134,10 @@ func scored():
 		obstacle_table.add_item(tree_move_scene, 10)
 	elif score == 20:
 		obstacle_table.add_item(tree_monster_scene, 5)
+		MusicPlayer.play_song(MAIN_THEME_ACTION)
 	elif score == 30:
 		obstacle_table.remove_item(tree_scene)
+	
 	ScoreLabel.text = "Score: " + str(score)
 
 func player_hit():
@@ -131,12 +145,15 @@ func player_hit():
 	stop_game()
 
 func stop_game():
-	Save.update_score(score)
-	$ObstacleTimer.stop()
-	$GameOver.show()
-	$Player.flying = false
-	game_running = false
-	game_over = true
+	if game_running and not game_over:
+		MusicPlayer.stop()
+		Save.update_score(score)
+		$ObstacleTimer.stop()
+		$GameOverSound.play()
+		$GameOver.show()
+		$Player.flying = false
+		game_running = false
+		game_over = true
 
 func _on_ground_hit():
 	$Player.falling = false
@@ -149,3 +166,8 @@ func _on_player_spell_casted(spell_scene, location):
 	var spell = spell_scene.instantiate()
 	spell.global_position = location
 	add_child(spell)
+
+func toggle_mute():
+	is_muted = !is_muted
+	var volume = -80 if is_muted else 0
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), volume)

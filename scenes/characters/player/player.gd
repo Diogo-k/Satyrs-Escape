@@ -49,14 +49,16 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("idle")
 
 func flap():
+	$JumpPlayer.play()
 	$AnimatedSprite2D.play("jump")
 	velocity.y = FLAP_SPEED
 
 func attack():
+	$SpellPlayer.play()
 	$AnimatedSprite2D.play("attack")
 	spell_casted.emit(spell_scene, $Marker2D.global_position)
 
-func _on_hurtbox_body_entered(body):
+func _on_hurtbox_body_entered(_body):
 	$PointLight2D.enabled = false
 	$AnimatedSprite2D.play("death")
 	monster_hit.emit()
