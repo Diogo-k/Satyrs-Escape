@@ -10,12 +10,13 @@ config_version=5
 
 [application]
 
-config/name="FlappyBird"
+config/name="Satyr's Escape"
 run/main_scene="res://scenes/main.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Satyrs_Escape"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://icon_satyr.png"
+config/windows_native_icon="res://ico_satyr.ico"
 
 [autoload]
 
@@ -26,9 +27,11 @@ MusicPlayer="*res://scenes/music_player.tscn"
 
 window/size/viewport_width=480
 window/size/viewport_height=272
+window/size/mode=2
 window/size/window_width_override=1600
 window/size/window_height_override=900
 window/stretch/mode="viewport"
+window/size/mode.debug=0
 
 [gui]
 
