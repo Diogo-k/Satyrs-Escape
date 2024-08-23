@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c6ouv05kxlewj"]
+
+[node name="StartGame" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="MarginContainer"]
+texture_filter = 3
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.45098, 0.0901961, 0.176471, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 64
+text = "Satyr's 
+Escape"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Label" parent="MarginContainer"]
+texture_filter = 3
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.45098, 0.0901961, 0.176471, 1)
+theme_override_colors/font_outline_color = Color(0.792157, 0.792157, 0.792157, 1)
+theme_override_constants/outline_size = 3
+text = "CLICK TO START"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

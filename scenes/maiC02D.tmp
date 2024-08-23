@@ -1,12 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cyjn8g3adaqyt"]
+[gd_scene load_steps=14 format=3 uid="uid://cyjn8g3adaqyt"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_dybq4"]
-[ext_resource type="PackedScene" uid="uid://docude6mum5y8" path="res://scenes/obstacles/tree.tscn" id="2_p634u"]
+[ext_resource type="PackedScene" uid="uid://docude6mum5y8" path="res://scenes/enviornment/tree.tscn" id="2_p634u"]
 [ext_resource type="PackedScene" uid="uid://pljneqi0dobx" path="res://scenes/enviornment/parallax.tscn" id="3_4kxs3"]
-[ext_resource type="PackedScene" uid="uid://i1rwh6uhh2l1" path="res://scenes/obstacles/tree_move.tscn" id="3_5echo"]
-[ext_resource type="PackedScene" uid="uid://i8bl84mx4yfh" path="res://scenes/characters/player/player.tscn" id="3_kisn8"]
+[ext_resource type="PackedScene" uid="uid://i8bl84mx4yfh" path="res://scenes/player/player.tscn" id="3_kisn8"]
 [ext_resource type="PackedScene" uid="uid://b63mmj0fy76yd" path="res://scenes/enviornment/ground.tscn" id="4_8g3as"]
-[ext_resource type="PackedScene" uid="uid://boso44l488cso" path="res://scenes/obstacles/tree_monster.tscn" id="4_15jqi"]
 [ext_resource type="PackedScene" uid="uid://cpehg7pxhyll8" path="res://scenes/ui/game_over.tscn" id="6_be0ic"]
 [ext_resource type="Script" path="res://scenes/enviornment/platform.gd" id="6_x2y1s"]
 [ext_resource type="Shader" path="res://scenes/enviornment/platform.gdshader" id="7_2sx6g"]
@@ -27,8 +25,6 @@ adjustment_brightness = 0.75
 [node name="Main" type="Node2D"]
 script = ExtResource("1_dybq4")
 tree_scene = ExtResource("2_p634u")
-tree_move_scene = ExtResource("3_5echo")
-tree_monster_scene = ExtResource("4_15jqi")
 
 [node name="Player" parent="." instance=ExtResource("3_kisn8")]
 position = Vector2(38, 157)
@@ -50,7 +46,7 @@ texture = ExtResource("7_3aie0")
 [node name="CanvasModulate" type="CanvasModulate" parent="Platform"]
 color = Color(0.533333, 0.533333, 0.533333, 1)
 
-[node name="ObstacleTimer" type="Timer" parent="."]
+[node name="TreeTimer" type="Timer" parent="."]
 wait_time = 1.5
 
 [node name="GameOver" parent="." instance=ExtResource("6_be0ic")]
@@ -64,5 +60,5 @@ visible = false
 environment = SubResource("Environment_6r1hp")
 
 [connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
-[connection signal="timeout" from="ObstacleTimer" to="." method="_on_obstacle_timer_timeout"]
+[connection signal="timeout" from="TreeTimer" to="." method="_on_pipe_timer_timeout"]
 [connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]

@@ -1,0 +1,157 @@
+[gd_scene load_steps=34 format=3 uid="uid://dswq0e6oarvtt"]
+
+[ext_resource type="Texture2D" uid="uid://cjrhcx88amix5" path="res://assets/dark_spell/1.png" id="1_3uli5"]
+[ext_resource type="Script" path="res://scenes/characters/player/spell.gd" id="1_nlu66"]
+[ext_resource type="Texture2D" uid="uid://b2gypxospgcmk" path="res://assets/dark_spell/2.png" id="2_7to4f"]
+[ext_resource type="Texture2D" uid="uid://bmcf6pahhgr35" path="res://assets/dark_spell/3.png" id="3_2ftfh"]
+[ext_resource type="Texture2D" uid="uid://cn4ekgnwxnast" path="res://assets/dark_spell/4.png" id="4_e2op8"]
+[ext_resource type="Texture2D" uid="uid://b7xjjaimrjaot" path="res://assets/dark_spell/5.png" id="5_de0tg"]
+[ext_resource type="Texture2D" uid="uid://c7i4hgwkyuxg0" path="res://assets/dark_spell/6.png" id="6_00twp"]
+[ext_resource type="Texture2D" uid="uid://d1lyjbccd2b3p" path="res://assets/dark_spell/7.png" id="7_petxx"]
+[ext_resource type="Texture2D" uid="uid://5d31fjq5uwdf" path="res://assets/dark_spell/8.png" id="8_awhjm"]
+[ext_resource type="Texture2D" uid="uid://b0r53u7ktrikf" path="res://assets/dark_spell/9.png" id="9_wn6d0"]
+[ext_resource type="Texture2D" uid="uid://bg50ouh3u55qg" path="res://assets/dark_spell/10.png" id="10_svfu8"]
+[ext_resource type="Texture2D" uid="uid://cmka7gkqjw106" path="res://assets/dark_spell/11.png" id="11_db6vb"]
+[ext_resource type="Texture2D" uid="uid://bjrhfasmke0ib" path="res://assets/dark_spell/12.png" id="12_mkkwr"]
+[ext_resource type="Texture2D" uid="uid://dc81r25dua1uw" path="res://assets/dark_spell/13.png" id="13_ta1hb"]
+[ext_resource type="Texture2D" uid="uid://cdgngjg7t4ble" path="res://assets/dark_spell/14.png" id="14_ioflj"]
+[ext_resource type="Texture2D" uid="uid://bjm22i5fn8pql" path="res://assets/dark_spell/15.png" id="15_rsnnm"]
+[ext_resource type="Texture2D" uid="uid://cy4u72kroq7p6" path="res://assets/dark_spell/16.png" id="16_goh2w"]
+[ext_resource type="Texture2D" uid="uid://uk6hrou3axj2" path="res://assets/dark_spell/17.png" id="17_gnpwi"]
+[ext_resource type="Texture2D" uid="uid://bf160cw58lbov" path="res://assets/dark_spell/18.png" id="18_fnyrq"]
+[ext_resource type="Texture2D" uid="uid://b30i0lnf0njjd" path="res://assets/dark_spell/19.png" id="19_ft8h2"]
+[ext_resource type="Texture2D" uid="uid://da481uh428wo4" path="res://assets/dark_spell/20.png" id="20_xbtwd"]
+[ext_resource type="Texture2D" uid="uid://bamvsy3ummkwr" path="res://assets/dark_spell/21.png" id="21_vaaa6"]
+[ext_resource type="Texture2D" uid="uid://djbfm77vu6yqy" path="res://assets/dark_spell/22.png" id="22_kvp48"]
+[ext_resource type="Texture2D" uid="uid://ci218yr0ipkcj" path="res://assets/dark_spell/23.png" id="23_puw04"]
+[ext_resource type="Texture2D" uid="uid://dbnuuoxryjgc8" path="res://assets/dark_spell/24.png" id="24_2xxae"]
+[ext_resource type="Texture2D" uid="uid://c88kyvxcrx6q7" path="res://assets/dark_spell/25.png" id="25_0oaye"]
+[ext_resource type="Texture2D" uid="uid://dwsviwb27rjne" path="res://assets/dark_spell/26.png" id="26_7128x"]
+[ext_resource type="Texture2D" uid="uid://t3rmyy7vqrtt" path="res://assets/dark_spell/27.png" id="27_of4ta"]
+[ext_resource type="Texture2D" uid="uid://cehlu8s7fnw6o" path="res://assets/dark_spell/28.png" id="28_awr4x"]
+[ext_resource type="Texture2D" uid="uid://cm2ofg0rgkg3k" path="res://assets/dark_spell/29.png" id="29_w883r"]
+[ext_resource type="Texture2D" uid="uid://bgwtsncw1ovgm" path="res://assets/dark_spell/30.png" id="30_vnau5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dm27y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3uli5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7to4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2ftfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e2op8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_de0tg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_00twp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_petxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_awhjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wn6d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_svfu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_db6vb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mkkwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ta1hb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ioflj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rsnnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_goh2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_gnpwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_fnyrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ft8h2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_xbtwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_vaaa6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_kvp48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_puw04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_2xxae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_0oaye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7128x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_of4ta")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_awr4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_w883r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_vnau5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8navr"]
+radius = 12.0
+
+[node name="Spell" type="Area2D" groups=["spells"]]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_nlu66")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1.5, 1.5, 1.5, 1)
+texture_filter = 3
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_dm27y")
+autoplay = "default"
+frame_progress = 0.864075
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_8navr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-18, 0)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

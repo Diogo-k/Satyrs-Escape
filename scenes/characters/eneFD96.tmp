@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://desly6ccbrahy"]
+
+[ext_resource type="Texture2D" uid="uid://biub4momxyl2q" path="res://assets/FLYING.png" id="1_7m2sp"]
+[ext_resource type="Script" path="res://scenes/characters/enemy.gd" id="1_na62e"]
+[ext_resource type="Texture2D" uid="uid://nfa842f5b4hn" path="res://assets/light.png" id="2_nd1xx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3p4u"]
+atlas = ExtResource("1_7m2sp")
+region = Rect2(0, 0, 81, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1j8a6"]
+atlas = ExtResource("1_7m2sp")
+region = Rect2(81, 0, 81, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbl28"]
+atlas = ExtResource("1_7m2sp")
+region = Rect2(162, 0, 81, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkcya"]
+atlas = ExtResource("1_7m2sp")
+region = Rect2(243, 0, 81, 71)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_asv6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3p4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1j8a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbl28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkcya")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2h8be"]
+radius = 21.0238
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w40e1"]
+radius = 11.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_na62e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1.35, 1, 1, 1)
+texture_filter = 3
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_asv6q")
+autoplay = "default"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_2h8be")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(6, 0)
+shape = SubResource("CircleShape2D_w40e1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 6)
+shape = SubResource("CircleShape2D_w40e1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.0742188, 0.0712891)
+color = Color(1, 0, 0, 1)
+range_layer_min = -512
+range_layer_max = 512
+texture = ExtResource("2_nd1xx")
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

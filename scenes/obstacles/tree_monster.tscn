@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://boso44l488cso"]
+
+[ext_resource type="Script" path="res://scenes/obstacles/tree_monster.gd" id="1_4ykfa"]
+[ext_resource type="Texture2D" uid="uid://f1ic2m681iwy" path="res://assets/lower_tree.png" id="2_qpl3l"]
+[ext_resource type="PackedScene" uid="uid://desly6ccbrahy" path="res://scenes/characters/enemy.tscn" id="3_jo4f2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fapn0"]
+size = Vector2(18, 268)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6mjc"]
+size = Vector2(19, 268)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvn0r"]
+size = Vector2(34, 191)
+
+[node name="TreeMonster" type="Area2D" groups=["obstacles"]]
+collision_mask = 9
+script = ExtResource("1_4ykfa")
+
+[node name="Upper" type="Sprite2D" parent="."]
+modulate = Color(2, 1, 1, 1)
+texture_filter = 3
+position = Vector2(0, -56)
+texture = ExtResource("2_qpl3l")
+offset = Vector2(0, -25)
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -83)
+shape = SubResource("RectangleShape2D_fapn0")
+
+[node name="Lower" type="Sprite2D" parent="."]
+modulate = Color(2, 1, 1, 1)
+texture_filter = 3
+position = Vector2(0, 52)
+texture = ExtResource("2_qpl3l")
+offset = Vector2(0, 200)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 254)
+shape = SubResource("RectangleShape2D_v6mjc")
+
+[node name="Enemy" parent="." instance=ExtResource("3_jo4f2")]
+position = Vector2(0, 85)
+
+[node name="ScoreArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(27, 95)
+shape = SubResource("RectangleShape2D_bvn0r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
