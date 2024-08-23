@@ -59,7 +59,7 @@ func new_game():
 	
 	$Score.hide()
 	
-	if Save.save_data["high_score"] > 0:
+	if Save.save_data and int(Save.save_data["high_score"]) > 0:
 		$Record.show()
 	
 	$StartGame.show()
