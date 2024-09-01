@@ -25,8 +25,7 @@ const SCROLL_SPEED : int = 1
 var screen_size: Vector2i
 var ground_height: int
 
-var obstacles: Array
-const PIPE_DELAY : int = 500
+const PIPE_DELAY : int = 600
 const OBSTACLE_RANGE : int = 76
 
 var is_muted = false
@@ -66,7 +65,7 @@ func new_game():
 	
 	get_tree().call_group("obstacles", "queue_free")
 	get_tree().call_group("spells", "queue_free")
-	obstacles.clear()
+
 	generate_obstacles()
 	
 	$Platform.build()
@@ -97,11 +96,6 @@ func start_game():
 	$ObstacleTimer.start()
 	$Platform.destroy()
 
-func _process(_delta):
-	if game_running:
-		for obstacle in obstacles:
-			obstacle.position.x -= SCROLL_SPEED
-
 func check_top():
 	if $Player.position.y < 0:
 		$Player.falling = true
@@ -121,7 +115,6 @@ func generate_obstacles():
 	obstacle.scored.connect(scored)
 	
 	add_child(obstacle)
-	obstacles.append(obstacle)
 
 func scored():
 	score += 1
@@ -136,6 +129,7 @@ func scored():
 		obstacle_table.add_item(tree_monster_scene, 5)
 		MusicPlayer.play_song(MAIN_THEME_ACTION)
 	elif score == 30:
+		obstacle_table.add_item(tree_monster_scene, 5)
 		obstacle_table.remove_item(tree_scene)
 	
 	ScoreLabel.text = "Score: " + str(score)

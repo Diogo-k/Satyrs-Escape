@@ -13,11 +13,16 @@ func _ready():
 	initial_y = position.y
 
 func _process(delta):
-	time_passed += delta
-	position.y = initial_y + amplitude * sin(time_passed * frequency)
+	if get_parent().game_running:
+		position.x -= 1
+		time_passed += delta
+		position.y = initial_y + amplitude * sin(time_passed * frequency)
 
 func _on_body_entered(_body):
 	hit.emit()
 
 func _on_score_area_body_entered(_body):
 	scored.emit()
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()

@@ -49,5 +49,10 @@ position = Vector2(0, 85)
 position = Vector2(27, 95)
 shape = SubResource("RectangleShape2D_bvn0r")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(56, 88)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="enemy_died" from="Enemy" to="." method="_on_enemy_enemy_died"]
 [connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
