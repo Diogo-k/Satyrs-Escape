@@ -4,7 +4,7 @@ const START_POS = Vector2(240, 165)
 
 const GRAVITY : int = 400
 const MAX_VEL : int = 300
-const FLAP_SPEED: int = -200
+const FLAP_SPEED: int = -180
 
 var flying : bool = false
 var falling : bool = false
