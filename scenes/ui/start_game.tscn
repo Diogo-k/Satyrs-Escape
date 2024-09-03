@@ -27,7 +27,7 @@ theme_override_colors/font_color = Color(0.45098, 0.0901961, 0.176471, 1)
 theme_override_colors/font_outline_color = Color(0.784314, 0.784314, 0.784314, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 44
-text = "Satyr's 
+text = "Satyr's
 Escape"
 horizontal_alignment = 1
 vertical_alignment = 1
