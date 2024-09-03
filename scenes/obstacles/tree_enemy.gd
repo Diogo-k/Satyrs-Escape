@@ -1,5 +1,7 @@
 extends Area2D
 
+var moving_tree = false
+
 signal hit
 signal scored
 

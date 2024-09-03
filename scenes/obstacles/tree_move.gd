@@ -1,7 +1,9 @@
 extends Area2D
 
+var moving_tree = true
+
 @export var amplitude: float = 50.0  # Maximum height of the up and down movement
-@export var frequency: float = 1.0   # Speed of the oscillation
+@export var frequency: float = 1.25   # Speed of the oscillation
 
 var initial_y: float
 var time_passed: float = 0.0
