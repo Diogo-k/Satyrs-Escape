@@ -33,13 +33,6 @@ func reset():
 	$Marker2D.position.x = 19
 
 func _physics_process(delta):
-	#if get_parent().game_running and get_parent().enemy_course:
-		#$AnimatedSprite2D.flip_h = true
-		#$Marker2D.position.x = -19
-	#elif get_parent().game_running and get_parent().obstacle_course:
-		#$AnimatedSprite2D.flip_h = false
-		#$Marker2D.position.x = 19
-	
 	if Input.is_action_pressed("attack") and get_parent().game_running:
 		if !spell_cd:
 			spell_cd = true
