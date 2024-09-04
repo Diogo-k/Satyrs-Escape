@@ -5,7 +5,7 @@ var moving_tree = false
 signal hit
 signal scored
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if get_parent().game_running:
 		position.x -= 2.5
 
