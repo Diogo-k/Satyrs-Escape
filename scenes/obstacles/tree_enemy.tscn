@@ -18,7 +18,7 @@ collision_mask = 9
 script = ExtResource("1_6488p")
 
 [node name="Upper" type="Sprite2D" parent="."]
-modulate = Color(2, 1, 1, 1)
+modulate = Color(2.75, 1, 1, 1)
 texture_filter = 3
 position = Vector2(0, -56)
 texture = ExtResource("2_7kvhm")
@@ -30,7 +30,7 @@ position = Vector2(0, -83)
 shape = SubResource("RectangleShape2D_fapn0")
 
 [node name="Lower" type="Sprite2D" parent="."]
-modulate = Color(2, 1, 1, 1)
+modulate = Color(2.75, 1, 1, 1)
 texture_filter = 3
 position = Vector2(0, 52)
 texture = ExtResource("2_7kvhm")
