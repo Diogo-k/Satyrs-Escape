@@ -1,9 +1,7 @@
 # Satyr's Escape
 
-[![License](https://img.shields.io/github/license/Diogo-k/Satyrs-Escape)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/Diogo-k/Satyrs-Escape)](https://github.com/Diogo-k/Satyrs-Escape/issues)
-[![GitHub forks](https://img.shields.io/github/forks/Diogo-k/Satyrs-Escape)](https://github.com/Diogo-k/Satyrs-Escape/network)
-[![GitHub stars](https://img.shields.io/github/stars/Diogo-k/Satyrs-Escape)](https://github.com/Diogo-k/Satyrs-Escape/stargazers)
 
 ![Satyr's Escape Banner](./satyrs-escape.png)
 
